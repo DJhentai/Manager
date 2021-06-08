@@ -1,0 +1,275 @@
+﻿<pu:WindowX x:Class="WpfApp1.MainWindow"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+            mc:Ignorable="d"
+            
+            Title="FanstechSystemManager"
+            Height="700"
+            Width="1200"
+            FontFamily="Consolas-with-Yahei" FontStyle="Italic"
+            WindowStartupLocation="CenterScreen"
+            Closing="WindowX_Closing">
+
+    <Grid>
+        <TabControl x:Name="TabControlTabHandle"
+                pu:TabControlHelper.ItemHeight="30"
+                pu:TabControlHelper.ItemsAlignment="Center"
+                pu:TabControlHelper.ItemCornerRadius="5" Margin="0,0,0,0"
+                SelectionChanged="TabControl_SelectionChanged">
+            <UIElement.RenderTransform>
+                <MatrixTransform/>
+            </UIElement.RenderTransform>
+
+            <TabItem Header="Login">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    
+                    <TextBox x:Name="LoginTabUserAccountText" Grid.Column="2" Grid.Row="10" Grid.ColumnSpan="3"
+                         Height="30"
+                         pu:TextBoxHelper.Watermark="Account"
+                         pu:TextBoxHelper.CornerRadius="15" 
+                         Cursor="IBeam"
+                         Visibility="Collapsed"/>
+
+                    <PasswordBox x:Name="LoginTabUserPwdText" Grid.Column="2" Grid.Row="11" Grid.ColumnSpan="3"
+                         Height="30"
+                         pu:PasswordBoxHelper.Watermark="Password"
+                         pu:PasswordBoxHelper.CornerRadius="15"
+                         pu:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                         Visibility="Collapsed"/>
+
+                    <Button x:Name="LoginTabCheckPwdClickButton" Grid.Column="3" Grid.Row="12"  Grid.ColumnSpan="1"
+                        Height="30"
+                        Content="Login"
+                        Click="LoginTabCheckUserPwdClickButton_Click"
+                        pu:ButtonHelper.CornerRadius="5" 
+                        pu:ButtonHelper.ButtonStyle="Outline"
+                        Visibility="Collapsed" />
+
+
+                    <TextBox x:Name="LoginTabUserNameDispTextBox" Grid.Column="2" Grid.Row="6"  Grid.ColumnSpan="2"
+                        Height="30" Width="300" IsReadOnly="True"
+                        pu:TextBoxHelper.Watermark="User: "
+                        pu:TextBoxHelper.CornerRadius="15"
+                        Visibility="Collapsed"/>
+
+                    <Button x:Name="LoginTabLogoutClickButton" Grid.Column="4" Grid.Row="6"  Grid.ColumnSpan="1"
+                        Height="30"
+                        Width="150"
+                        Content="Login Out"
+                        Click="LoginTabLogOutClickButton_Click"
+                        pu:ButtonHelper.CornerRadius="5" 
+                        pu:ButtonHelper.ButtonStyle="Outline"
+                        Visibility="Collapsed"/>
+
+                    <PasswordBox x:Name="MysqlConnectIpText" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="2"
+                         Height="30"
+                         pu:PasswordBoxHelper.Watermark="Ip"
+                         pu:PasswordBoxHelper.CornerRadius="15"
+                         pu:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                         pu:PasswordBoxHelper.IsShowPwdButtonVisible ="True"
+                         Visibility="Collapsed"/>
+                    <PasswordBox x:Name="MysqlConnectPortText" Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="2"
+                         Height="30"
+                         pu:PasswordBoxHelper.Watermark="Port"
+                         pu:PasswordBoxHelper.CornerRadius="15"
+                         pu:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                         pu:PasswordBoxHelper.IsShowPwdButtonVisible ="True"
+                         Visibility="Collapsed"/>
+                    <TextBox x:Name="MysqlConnectDataBasesNameText" Grid.Column="2" Grid.Row="10" Grid.ColumnSpan="2"
+                         Height="30"
+                         pu:TextBoxHelper.Watermark="Set Name"
+                         pu:TextBoxHelper.CornerRadius="15" 
+                         Cursor="IBeam"
+                         Visibility="Collapsed"/>
+                    <TextBox x:Name="MysqlConnectUserNameTextBox" Grid.Column="2" Grid.Row="11" Grid.ColumnSpan="2"
+                         Height="30"
+                         pu:TextBoxHelper.Watermark="Account"
+                         pu:TextBoxHelper.CornerRadius="15" 
+                         Cursor="IBeam"
+                         Visibility="Collapsed"/>
+                    <PasswordBox x:Name="MysqlConnectUserPwdText" Grid.Column="2" Grid.Row="12" Grid.ColumnSpan="2"
+                         Height="30"
+                         pu:PasswordBoxHelper.Watermark="Password"
+                         pu:PasswordBoxHelper.CornerRadius="15"
+                         pu:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                         pu:PasswordBoxHelper.IsShowPwdButtonVisible ="True"
+                         Visibility="Collapsed"/>
+
+                    <Button x:Name="MysqlConnectLoginClickButton" Grid.Column="4" Grid.Row="10"  Grid.ColumnSpan="1"
+                        Height="30"
+                        Width="150"
+                        Content="Login"
+                        Click="MysqlConnectLoginClickButton_Click"
+                        pu:ButtonHelper.CornerRadius="5" 
+                        pu:ButtonHelper.ButtonStyle="Outline"
+                        Visibility="Collapsed"/>
+
+                    <TextBox x:Name="MysqlUserNameDispTextBox" Grid.Column="2" Grid.Row="7"  Grid.ColumnSpan="2"
+                        Height="30" Width="300" IsReadOnly="True" 
+                        pu:TextBoxHelper.Watermark="User:"
+                        pu:TextBoxHelper.CornerRadius="15"
+                        Visibility="Collapsed"/>
+
+                    <Button x:Name="MysqlLogoutClickButton" Grid.Column="4" Grid.Row="7"  Grid.ColumnSpan="1"
+                        Height="30"
+                        Width="150"
+                        Content="Login Out"
+                        Click="MysqlLogOutClickButton_Click"
+                        pu:ButtonHelper.CornerRadius="5" 
+                        pu:ButtonHelper.ButtonStyle="Outline"
+                        Visibility="Collapsed"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="DataGrid1">
+                <Grid>
+                    <DataGrid x:Name="Tab2FirstDataGrid"
+                            MouseRightButtonDown="DataGrid_MouseRightButtonDown"   
+                            
+                            pu:DataGridHelper.SelectedBackground="#FFB0ABAB"
+                            pu:DataGridHelper.HoverBackground="#FF787575"
+                            pu:DataGridHelper.ColumnHorizontalContentAlignment="Center"
+                            CanUserDeleteRows="True"
+                            CanUserAddRows="True"
+                            CanUserResizeRows="True"
+                            CanUserReorderColumns="True"
+                            CanUserResizeColumns="True"
+                            CanUserSortColumns="True"
+                            LoadingRow="DataGrid_LoadingRow"
+                            ItemsSource="{Binding }">
+                        
+                    </DataGrid>
+                    
+                    <pu:Loading x:Name="MysqlDataGrid1DispLoadingGui" Height="50"
+                            Width="50"
+                            LoadingStyle="Classic"
+                            IsRunning="True" Grid.Column="3" Margin="61,18,61,23" Grid.RowSpan="2" Grid.Row="9"
+                            Visibility="Hidden"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="DataGrid2">
+                <Grid>
+                    <Grid>
+                        <DataGrid x:Name="Tab2SecDataGrid"
+                            pu:DataGridHelper.SelectedBackground="#FFB0ABAB"
+                            pu:DataGridHelper.HoverBackground="#FF787575"
+                            pu:DataGridHelper.ColumnHorizontalContentAlignment="Center"
+                            CanUserDeleteRows="True"
+                            CanUserAddRows="True"
+                            CanUserResizeRows="True"
+                            CanUserReorderColumns="True"
+                            CanUserResizeColumns="True"
+                            CanUserSortColumns="True"
+                            LoadingRow="DataGrid_LoadingRow"
+                            ItemsSource="{Binding }">
+                        </DataGrid>
+                        <pu:Loading x:Name="MysqlDataGrid2DispLoadingGui" Height="50"
+                        Width="50"
+                        LoadingStyle="Classic"
+                        IsRunning="True" Grid.Column="3" Margin="61,18,61,23" Grid.RowSpan="2" Grid.Row="9"
+                        Visibility="Hidden"/>
+                    </Grid>
+                </Grid>                
+            </TabItem>
+            <TabItem Header="FilesExplorer">
+                <Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="1*" />
+                        </Grid.RowDefinitions>
+
+                        <TextBox x:Name="Tab4SearchFilesText" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4"
+                             Height="30"
+                             pu:TextBoxHelper.Watermark="Enter Str To Searching..."
+                             pu:TextBoxHelper.CornerRadius="15" 
+                             Cursor="IBeam"
+                             Visibility="Visible"/>
+
+                        <Button x:Name="Tab4SearchFilesClickButton" Grid.Column="5" Grid.Row="1"  Grid.ColumnSpan="1"
+                            Height="30"
+                            Width="150"
+                            Content="Search"
+                            Click="UsedEverythingApisButtonSearch_Click"
+                            pu:ButtonHelper.CornerRadius="5" 
+                            pu:ButtonHelper.ButtonStyle="Outline"
+                            Visibility="Visible"/>
+
+                        <ListView x:Name="Tab4EverythingApisSearchingResultListView" Grid.Column="1" Grid.Row="2"  Grid.ColumnSpan="5" Grid.RowSpan="12"
+                                  PreviewMouseLeftButtonDown="ListViewItem_PreviewMouseLeftButtonDown"
+                                  PreviewMouseDoubleClick="ListViewItem_PreviewMouseDoubleClick"
+                                  Visibility="Visible">
+                            <ListView.View>
+                                <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="Employee Information">
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=FileName}"  Header="FileName" Width="350"/>
+                                    <GridViewColumn DisplayMemberBinding="{Binding Path=FullPath}"  Header="FullPath" Width="500"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+
+                        <TextBox Grid.Column="5" Grid.Row="14" Grid.ColumnSpan="2"
+                                 IsReadOnly="True"
+                                 Text="Using Everyting's APIs"
+                                 Height="30"
+                                 pu:TextBoxHelper.Watermark="Powered By Everything"
+                                 pu:TextBoxHelper.CornerRadius="15" 
+                                 Cursor="IBeam"
+                                 Visibility="Visible"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</pu:WindowX>
