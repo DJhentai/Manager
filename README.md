@@ -1,0 +1,2 @@
+# Manager
+wpf app test
